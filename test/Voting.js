@@ -62,5 +62,30 @@ describe("Voting Contract", function () {
     });
   });
 
+    describe("Voting Session", function () {
+    beforeEach(async function () {
+      await voting.startProposalsRegistering();
+      await voting.connect(addr1).addProposal("Proposal 1");
+      await voting.endProposalsRegistering();
+      await voting.startVotingSession();
+    });
+
+    it("Should allow a registered voter to vote", async function () {
+      await voting.connect(addr1).setVote(1);
+      const voter = await voting.connect(addr1).getVoter(addr1.address);
+      expect(voter.hasVoted).to.be.true;
+      expect(voter.votedProposalId).to.equal(1);
+    });
+
+    it("Should not allow double voting", async function () {
+      await voting.connect(addr1).setVote(1);
+      await expect(
+        voting.connect(addr1).setVote(1)
+      ).to.be.revertedWith("You have already voted");
+    });
+  });
+
+
+
 
 });
