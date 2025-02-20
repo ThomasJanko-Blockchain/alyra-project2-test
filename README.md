@@ -1,13 +1,8 @@
-# Sample Hardhat Project
+# Alyra Prject2 - Tests
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
-
-Try running some of the following tasks:
+Ce projet a pour but de faire des tests sur le contrat ```Voting.sol```.
 
 ```shell
-npx hardhat help
 npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
+npx hardhat coverage
 ```
