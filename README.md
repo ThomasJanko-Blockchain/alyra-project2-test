@@ -52,3 +52,5 @@ Les tests sont divisés en 7 catégories principales :
 # Tests
 - Création de la fixture ```deployVotingFixture``` pour déployer le contrat et enregistrer l'adresse1 en tant que voteur.
   Cette fixture sera utilisée avant chaque tests.
+
+- Avant certains groupe de tests, on utilise un ```beforeEach``` pour avant le status à un workflow précis.
